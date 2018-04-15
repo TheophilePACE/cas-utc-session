@@ -1,35 +1,23 @@
-var cookieParser = require('cookie-parser');
-var express = require('express');
-var path = require('path');
-var ejs = require('ejs');
-const cookieSession = require('cookie-session')
-var logger = require('morgan');
-var bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const express = require('express');
+const path = require('path');
+const ejs = require('ejs');
+const logger = require('morgan');
+const bodyParser = require('body-parser');
 
-var app = express();
+let app = express();
 
 // View engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-
-// Set up favicon, logging, parsing, static files
-// Uncomment after placing your favicon in public/images/
-//app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
+//Set up express
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '/public')));
 
-//set up the sessions to be stored in cookies for 2 hours
-let expiryDate = new Date(Date.now() + 120 * 60 * 1000) // 2 hour
-app.use(cookieSession({
-  name: 'cas_infos',
-  keys: ["Fillon", "rend", "largent"],
-  // Cookie Options
-  maxAge: expiryDate
-}))
 // Set up routes and pass in configured passport
 require('./routes/index.js')(app);
 require('./routes/auth.js')(app);
