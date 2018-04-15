@@ -2,11 +2,10 @@
 var app = require('../app');
 var debug = require('debug')('project:server');
 var http = require('http');
-const configNode = require('../config/node')
 
 _throw = (err) => { throw (Error(err)) }
 
-var port = normalizePort(configNode.port || _throw("the node port is not set!"))
+var port = normalizePort(3000)
 console.log("[www] App launched on port " + port)
 app.set('port', port);
 
