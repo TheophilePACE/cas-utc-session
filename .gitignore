@@ -59,3 +59,6 @@ typings/
 
 #Mac os files
 .DS_Store
+
+#Production file for npm
+package-lock.json
