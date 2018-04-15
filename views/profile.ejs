@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Profile</title>
+    <% include partials/head %>
+  </head>
+  <% include partials/header %>
+
+  <body>
+    <div class="container">
+      <div class="page-header text-center">
+        <h1>Profile</h1>
+      </div>
+
+      <div class="well">
+        <p><strong>User ID <%= pseudo %> </strong>:</p>
+        <p><strong>Email</strong>: <%= email %> </p>
+        <p><strong>Pseudo </strong>: <%= displayname %> </p>
+      </div>
+      <a href="/logout" class="btn btn-info">Logout</a>
+
+    </div>
+  </body>
+</html>

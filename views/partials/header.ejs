@@ -1,0 +1,27 @@
+<header>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-md navbar-light">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" 
+        data-target="#navbarCollapse" aria-controls="navbarCollapse"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="navbar-collapse collapse offcanvas-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">          
+        <li><a class="nav-link list-group-item-action" href="/">Link </a></li>
+        <li><a class="nav-link list-group-item-action" href="#">Link </a></li>
+        <li><a class="nav-link list-group-item-action" href="#">Link ?</a></li>
+        <li><a class="nav-link list-group-item-action" href="#">Link </a></li>
+        <li><a class="nav-link list-group-item-action" href="#">Link </a></li>
+    </ul>
+
+    <% if(loggedIn) { %>
+    <%= loggedIn %> <a href="/logout"><button class="btn-sm btn-outline-dark ml-1">Log out</button></a>
+    <%} else {%>
+    <a href="/login"><button class="btn-sm btn-outline-dark ml-1">Log in</button></a>
+    <%}%>
+    </div>
+</nav>
+
+</header>
