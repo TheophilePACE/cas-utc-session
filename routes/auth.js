@@ -3,7 +3,7 @@ const cookieSession = require('cookie-session')
 
 const { requireLogin } = require('../utils/auth');
 
-const { service_url, cas_url, cas_version } = require('../config')
+const { service_url, cas_url, cas_version, service_port } = require('../config')
 
 // Routes for authentication (signup, login, logout)
 module.exports = function (app, passport) {
@@ -21,7 +21,7 @@ module.exports = function (app, passport) {
   const cas = new CASAuthentication({
     cas_url, // URL of UTC CAS 
     cas_version, // CAS VErsion. 2 for UTC
-    service_url, //your URL
+    service_url: service_url + ':' + service_port, //your URL
     session_info: 'cas_infos' //name for the session send back by the CAS
   })
 
